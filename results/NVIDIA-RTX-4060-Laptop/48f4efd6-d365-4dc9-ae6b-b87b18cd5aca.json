@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "48f4efd6-d365-4dc9-ae6b-b87b18cd5aca",
+  "timestamp": "2026-11-17T12:57:49.845433+00:00",
+  "model": {
+    "name": "Llama-3.2-3B-Instruct-GGUF",
+    "class": "dense",
+    "quantization": "Q4_K_XL",
+    "context_length": 4096,
+    "parameters_b": 3.21
+  },
+  "config": {
+    "compute_engine": "dgpu",
+    "backend": "llamacpp-cuda",
+    "os": "windows",
+    "power_state": "plugged"
+  },
+  "environment": {
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12650H",
+    "device_model": "12th Gen Intel(R) Core(TM) i7-12650H",
+    "dgpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "dgpu_family": "sm_89",
+    "driver_version": "610.78",
+    "lemonade_version": "2026.46.2",
+    "memory_gb": 16.0,
+    "os_version": "Windows 11 Home 6.3 (Build 26200)",
+    "backend_version": "b11836"
+  },
+  "metrics": {
+    "prefill": {
+      "tokens_per_sec": 2434.561347019233,
+      "stddev": 36.56347340901494,
+      "p95": 2479.3140647939845,
+      "ci95_half_width": 45.39227036242238
+    },
+    "decode": {
+      "tokens_per_sec": 64.33532342471148,
+      "inter_token_latency_ms": 15.543560625295553,
+      "stddev": 0.27180866088735733,
+      "p95": 64.57717445102197,
+      "ci95_half_width": 0.3374409231811356
+    },
+    "ttft_ms": 25.4666,
+    "trial_count": 5,
+    "peak_memory_gb": 3.361614227294922,
+    "prompt_sha256": "1c43b07d6b0d7624785966ffe2ddc076aa76b5fcf9357882ac1165f0073f43ee",
+    "prompt_tokens": 62,
+    "ttft_ms_stddev": 0.380611744432565,
+    "ttft_ms_ci95_half_width": 0.472516136886943
+  },
+  "validity": {
+    "valid": true,
+    "warmup_discarded": true,
+    "thermal_ok": true,
+    "exclusive_run": true,
+    "model_reload_free": true,
+    "prompt_cache_free": true,
+    "other_models_resident": false,
+    "notes": "Lemonade doesn't report power draw for this instance; energy metrics omitted; exclusive_run verified via /api/v1/health polling (no other loaded model was busy)"
+  }
+}
