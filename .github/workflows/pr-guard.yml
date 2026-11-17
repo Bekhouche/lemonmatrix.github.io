@@ -1,0 +1,48 @@
+name: PR guard
+
+# Required check for every PR to main. A contributor PR may only add result
+# files written by `lemonmatrix submit`, and each one must pass LemonMatrix's
+# schema validation. Maintainers may change anything, within the file-size limit.
+#
+# pull_request_target runs this workflow and scripts/check_pr.py as they are
+# on main, so a PR cannot edit the rules it is checked against. The PR's files
+# are only read as data (git show); none of its code is run here.
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fetch the PR's commits
+        env:
+          PR: ${{ github.event.pull_request.number }}
+        run: git fetch --no-tags origin "+refs/pull/${PR}/head:refs/remotes/pr/head"
+
+      - name: Check paths, sizes and format
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MAINTAINERS: Bekhouche
+        run: python3 scripts/check_pr.py --base "$BASE" --head pr/head --author "$AUTHOR" --maintainers "$MAINTAINERS" --out "$RUNNER_TEMP/pr"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate the results against LemonMatrix's schemas
+        run: |
+          cd "$RUNNER_TEMP/pr" 2>/dev/null || { echo "No result files in this PR."; exit 0; }
+          pip install --quiet git+https://github.com/Bekhouche/LemonMatrix.git
+          find results -name '*.json' -print0 | xargs -0 --no-run-if-empty lemonmatrix validate-submission
