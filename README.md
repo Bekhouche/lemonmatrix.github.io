@@ -23,9 +23,14 @@ Live site: https://lemonmatrix.github.io
 
 ## Submitting a result
 
-Open a PR adding a result JSON under `results/<profile>/`. CI
-(`.github/workflows/validate-results.yml`) validates it against LemonMatrix's
-schemas before merge -- see the code repo's `README.md` for how to generate
+Open a PR adding a result JSON under `results/<profile>/`, or let
+`lemonmatrix submit` open it for you. The required `PR guard` check
+(`.github/workflows/pr-guard.yml`, `scripts/check_pr.py`) accepts a
+contributor PR only if it adds new files at
+`results/<profile>/[<modality>/|trials/]<run_id>.json`, each under 1 MB, each
+a JSON object whose `run_id` matches its file name, and each passing
+LemonMatrix's schemas. Changing or deleting existing results, or adding
+anything else, is left to maintainers. See the code repo's `README.md` for how to generate
 one with `lemonmatrix run` / `lemonmatrix sweep` against your own local
 Lemonade instance. Every number on the leaderboard comes from a
 contributor's own machine talking to its own Lemonade instance; nothing here
