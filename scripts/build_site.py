@@ -782,6 +782,7 @@ def render(
     this site only renders what Lemonade itself reported, never anything read from the machine directly.
   </p>
   <p class="links">
+    <a href="https://www.youtube.com/watch?v=36J3A6Zr4Jc" target="_blank" rel="noopener">Watch the demo (3 min)</a>
     <a href="https://github.com/Bekhouche/LemonMatrix" target="_blank" rel="noopener">LemonMatrix (code)</a>
     <a href="https://github.com/LemonMatrix/lemonmatrix.github.io" target="_blank" rel="noopener">This repo (results + site)</a>
     <a href="guide.html">Submit a result: step by step</a>
