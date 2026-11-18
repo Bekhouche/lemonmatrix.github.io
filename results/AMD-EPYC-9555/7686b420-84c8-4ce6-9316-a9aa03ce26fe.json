@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "7686b420-84c8-4ce6-9316-a9aa03ce26fe",
+  "timestamp": "2026-11-17T12:15:52.823282+00:00",
+  "model": {
+    "name": "Qwen3-1.7B-GGUF",
+    "class": "dense",
+    "quantization": "Q4_0",
+    "context_length": 4096
+  },
+  "config": {
+    "compute_engine": "cpu",
+    "backend": "llamacpp-cpu",
+    "os": "linux",
+    "power_state": "plugged"
+  },
+  "environment": {
+    "cpu": "AMD EPYC 9555 64-Core Processor",
+    "device_model": "AMD EPYC 9555 64-Core Processor",
+    "dgpu": "2x NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "dgpu_family": "2x sm_120",
+    "driver_version": "580.178.04",
+    "lemonade_version": "2026.46.2",
+    "memory_gb": 172.92,
+    "os_version": "Linux-7.0.0-43-generic (Ubuntu 26.04)"
+  },
+  "metrics": {
+    "prefill": {
+      "tokens_per_sec": 1315.4927459971434,
+      "stddev": 52.9144879399839,
+      "p95": 1351.2683402799255,
+      "ci95_half_width": 65.6914816541659
+    },
+    "decode": {
+      "tokens_per_sec": 184.18791369729175,
+      "inter_token_latency_ms": 5.429237890405095,
+      "stddev": 2.368162481171716,
+      "p95": 185.32483209826088,
+      "ci95_half_width": 2.9399906952217427
+    },
+    "ttft_ms": 26.606,
+    "trial_count": 5,
+    "peak_memory_gb": 0.62225341796875,
+    "prompt_sha256": "1c43b07d6b0d7624785966ffe2ddc076aa76b5fcf9357882ac1165f0073f43ee",
+    "prompt_tokens": 35,
+    "ttft_ms_stddev": 1.1207263269862104,
+    "ttft_ms_ci95_half_width": 1.3913424435299897
+  },
+  "validity": {
+    "valid": true,
+    "warmup_discarded": true,
+    "thermal_ok": true,
+    "exclusive_run": true,
+    "model_reload_free": true,
+    "prompt_cache_free": true,
+    "other_models_resident": false,
+    "notes": "Lemonade doesn't report power draw for this instance; energy metrics omitted; exclusive_run verified via /api/v1/health polling (no other loaded model was busy)"
+  }
+}
