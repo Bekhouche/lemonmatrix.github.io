@@ -6,6 +6,8 @@ code beyond the site generator -- the CLI/library lives in the code repo.
 
 Live site: https://lemonmatrix.github.io
 
+Demo video (3 min): https://www.youtube.com/watch?v=36J3A6Zr4Jc
+
 ## Layout
 
 - `results/<profile>/*.json` -- LLM and router run results.
