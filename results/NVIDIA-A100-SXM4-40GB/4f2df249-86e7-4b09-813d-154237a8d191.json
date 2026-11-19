@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "4f2df249-86e7-4b09-813d-154237a8d191",
+  "timestamp": "2026-11-19T17:47:41.280948+00:00",
+  "model": {
+    "name": "Llama-3.2-3B-Instruct-GGUF",
+    "class": "dense",
+    "quantization": "Q4_K_XL",
+    "context_length": 4096
+  },
+  "config": {
+    "compute_engine": "dgpu",
+    "backend": "llamacpp-cuda",
+    "os": "linux",
+    "power_state": "plugged"
+  },
+  "environment": {
+    "cpu": "AMD EPYC 7742 64-Core Processor",
+    "device_model": "AMD EPYC 7742 64-Core Processor",
+    "dgpu": "8x NVIDIA A100-SXM4-40GB",
+    "dgpu_family": "8x sm_80",
+    "driver_version": "570.211.01",
+    "lemonade_version": "2026.47.1",
+    "memory_gb": 1007.65,
+    "os_version": "Linux-5.15.0-1095-nvidia (Ubuntu 22.04)",
+    "backend_version": "b12109"
+  },
+  "metrics": {
+    "prefill": {
+      "tokens_per_sec": 4062.43038173741,
+      "stddev": 207.11012766787792,
+      "p95": 4197.7916589003535,
+      "ci95_half_width": 257.1199624480482
+    },
+    "decode": {
+      "tokens_per_sec": 98.75793943836018,
+      "inter_token_latency_ms": 10.125768173040411,
+      "stddev": 37.82772896431987,
+      "p95": 147.20845621496872,
+      "ci95_half_width": 46.961799310934325
+    },
+    "ttft_ms": 15.2618,
+    "trial_count": 5,
+    "peak_memory_gb": 5.068359375,
+    "prompt_sha256": "1c43b07d6b0d7624785966ffe2ddc076aa76b5fcf9357882ac1165f0073f43ee",
+    "prompt_tokens": 62,
+    "ttft_ms_stddev": 0.830841260410194,
+    "ttft_ms_ci95_half_width": 1.031460296425141
+  },
+  "validity": {
+    "valid": true,
+    "warmup_discarded": true,
+    "thermal_ok": true,
+    "exclusive_run": true,
+    "model_reload_free": true,
+    "prompt_cache_free": true,
+    "other_models_resident": false,
+    "notes": "Lemonade doesn't report power draw for this instance; energy metrics omitted; exclusive_run verified via /api/v1/health polling (no other loaded model was busy)"
+  }
+}
